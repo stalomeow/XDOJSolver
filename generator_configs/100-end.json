@@ -1,0 +1,126 @@
+[
+    {
+        "id": "100",
+        "text": "#include <stdio.h>\nint main()\n{\n int a, b, c;\n scanf(\"%d %d %d\", &a, &b, &c);\n if( ( a + b > c )&&( b + c > a )&&( a + c > b ) )\n {\n  printf(\"%d\", a+b+c);\n }else\n  printf(\"No\");\n return 0;\n}\n···\n\n- 108\n```c\n#include<stdio.h>\n#include<string.h>\n#include<math.h>\nint main()\n{\n int i,sum=0,j=0;\n char b[100];\n int c[100]={0};\n gets(b);\n for(i=0;i<strlen(b);i++)\n {\n  \n  if(b[i]>='0' && b[i]<='9')\n  {\n   c[j]=b[i]-48;\n   j++; \n  }\n }\n for(i=0;i<j;i++)\n sum=sum*10+c[i];\n if (sum==0)\n printf(\"%d\",sum);\n else\n {\n  for(i=2;i<=sqrt(sum);i++)\n  {\n   if(sum%i==0)\n   {\n    sum=sum/i;\n   }\n  }\n  printf(\"%d\",sum);\n }\n return 0;\n } \n"
+    },
+    {
+        "id": "110",
+        "text": "#include <stdio.h>\nint main()\n{\n int n;\n scanf(\"%d\", &n);\n if( n%2==0 )\n {\n  printf(\"偶数\");\n }else\n {\n  printf(\"奇数\");\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "113",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n float s,m;\n int t;\n scanf(\"%f%d\",&s,&t);\n m=10;\n m=m+(t/5)*2;\n if(s<=3)\n printf(\"%.0f\",m);\n else{\n  if(s<=10){\n  m=(s-3)*2+m;\n  printf(\"%.0f\",m);}\n  else{\n  m=m+14+(s-10)*3;\n  printf(\"%.0f\",m);}\n }\n return 0;}\n"
+    },
+    {
+        "id": "125",
+        "text": "#include<stdio.h>\nint main()\n{\n int i=1;\n float r,n,p=1;\n scanf(\"%f %f\",&r,&n);\n while(i<=n)\n {\n p=p*(1+r);\n i=i+1;\n }\n printf(\"%.2f\",p);\n return 0;\n}\n"
+    },
+    {
+        "id": "126",
+        "text": "#include <stdio.h>\n#include <math.h>\nint main()\n{\n float d, p, r, m;\n scanf(\"%f %f %f\", &d, &p, &r);\n m = log( p/(p-d*r) ) / log(1+r);\n printf(\"%.2f\", m);\n return 0;\n}\n"
+    },
+    {
+        "id": "133",
+        "text": "#include <bits/stdc++.h>\nusing namespace std;\n\nstruct dxs{//多项式...的拼音\n int ratio = 0;//系数 \n int index = 0;//指数 \n \n bool operator < (const dxs& s){//重载 < 运算符\n  return index < s.index;\n }\n};\n\nint printDXS(dxs in, int pos){//输出一项; 返回0代表该项系数为0; 返回1代表输出了一项 \n if(in.ratio == 0)\n  return 0;\n else{ \n  if(in.ratio > 0 && pos != 0)\n   cout << \"+\"; \n  if(in.index == 0){\n   cout << in.ratio;\n   return 1; \n  }\n  else if(in.index == 1){\n   if(in.ratio == 1){\n    cout << \"x\";\n    return 1;\n   }\n   if(in.ratio == -1){\n    cout << \"-x\";\n    return 1;\n   }\n   cout << in.ratio << \"x\";\n   return 1;\n  }\n  else{\n   if(in.ratio == 1){\n    cout << \"x^\" << in.index;\n    return 1;\n   }\n   if(in.ratio == -1){\n    cout << \"-x^\" << in.index;\n    return 1;\n   }\n   cout << in.ratio << \"x^\" << in.index;\n   return 1; \n  }\n } \n}\n\nvoid merge(dxs& a, dxs& b, int op){//合并同类项, 传引用来修改实参 \n if(op == 0)\n  a.ratio = a.ratio + b.ratio;\n else \n  a.ratio = a.ratio - b.ratio;\n}\n\nint main(){\n int n, m, t;\n cin >> n >> m >> t;\n vector<dxs> a, b;//第一行, 第二行 \n \n for(int i = 0;i < n;i++){\n  dxs t;\n  cin >> t.ratio >> t.index;\n  a.push_back(t);\n }\n \n for(int i = 0;i < m;i++){\n  dxs t;\n  cin >> t.ratio >> t.index;\n  b.push_back(t);\n }\n \n for(int y = 0;y < m;y++){\n  for(int x = 0;x < n;x++){\n   if(b[y].index == a[x].index){//指数相等\n    merge(a[x], b[y], t);\n    goto END; \n   }\n  }\n  //重要 \n  if(t == 1)\n   b[y].ratio = -b[y].ratio;//系数取反\n  a.push_back(b[y]);\n  END:; \n }\n \n int outCnt = 0;//记录输出了多少项, 毕竟 首项前面不能有+号 \n sort(a.begin(), a.end());\n for(unsigned int i = 0;i < a.size();i++){\n  if(printDXS(a[i], outCnt))\n   outCnt++;\n }\n return 0; \n} \n"
+    },
+    {
+        "id": "135",
+        "text": "#include <stdio.h>\n#include <string.h>\nint main(){\n int a[100]={0}; \n int i=0,j,temp,cnt=0;  \n  char ch;\n ch=getchar(); //一个一个读，当时~~比较笨~~ 不会用gets，只会用这个\n while((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')){\n  ch = getchar(); \n }\n    while(ch!= EOF && ch!='\\r'&&ch!='\\n'){ //读到了手动结束（windows是ctrl+z）或换行符时\n     if(ch>='0'&&ch<='9'){\n      a[i]=a[i]*10+ch-'0';//很重要，因为一个一个读的话连续的数字要拼接成整数\n    }\n     ch = getchar();\n  while((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')){\n   ch = getchar();//同上\n   if(ch>='0'&&ch<='9'){\n    i++;\n    cnt++;\n   }\n  }\n }\n for(i=0;i<cnt;i++){\n  for(j=0;j<cnt;j++){\n   if(a[j]<a[j+1]){ \n    temp = a[j];      \n    a[j] = a[j+1];      \n    a[j+1] = temp;\n   } \n  }\n }//简单的冒泡排序\n for(i=0;i<=cnt;i++){\n  printf(\"%d \", a[i]);\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "156",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n printf(\"83\") ;\n return 0;\n}\n"
+    },
+    {
+        "id": "162",
+        "text": "#include<stdio.h>\n#include<stdlib.h>\n#define ROW 2\n#define COL 2\n#define MID 3\nint main()\n{\n int arr1[ROW][MID];\n int arr2[MID][COL];\n int arr3[ROW][COL];\n int i,j,m,sum;\n for(i=0;i<ROW;i++)\n   for(j=0;j<MID;j++)\n   scanf(\"%d\",&arr1[i][j]);\n   for(i=0;i<MID;i++)\n    for(j=0;j<COL;j++)\n     scanf(\"%d\",&arr2[i][j]);\n for(i=0;i<ROW;i++)\n {\n  for(j=0;j<COL;j++)\n  {\n   sum=0;\n   for(m=0;m<MID;m++)\n   {\n    sum=sum+arr1[i][m]*arr2[m][j];\n   }\n   arr3[i][j]=sum;\n  }\n }\n for(i=0;i<ROW;i++)\n {\n  for(j=0;j<MID;j++)\n  {\n   printf(\"%5d\",arr1[i][j]);\n  }\n  printf(\"\\n\");\n }\n printf(\"\\n\");\n for(i=0;i<MID;i++)\n {\n  for(j=0;j<COL;j++)\n  {\n   printf(\"%5d\",arr2[i][j]);\n  }\n  printf(\"\\n\");\n }\n printf(\"\\n\");\n for(i=0;i<ROW;i++)\n {\n  for(j=0;j<COL;j++)\n  {\n   printf(\"%5d\",arr3[i][j]);\n  }\n  printf(\"\\n\");\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "167",
+        "text": "#include <stdio.h>\nint main() \n{ \n  int i,j,a[1005]={0};  //初始化每个数字出现的次数为0 \n   int n,num;\n   scanf(\"%d\",&n);\n for(i=1;i<=n;i++)\n { \n  scanf(\"%d\",&num);\n  a[num]++; //边输入边统计数字出现的次数 \n } \n for(i=1000;i>0;i--)  //i代表的是出现的次数 最大为1000 直接对出现的次数进行了排序 \n for(j=0;j<=1000;j++)//从数字0开始向上搜索 \n if(a[j]==i)  //若存在一个数字的出现次数为i \n printf(\"%d %d\\n\",j,a[j]);\n return 0;\n}\n"
+    },
+    {
+        "id": "171",
+        "text": "#include<stdio.h>//非结构体版本\nint main()\n{\n int d[100],c[100],time,temp,p=0,b[100]={0},t[100]={0},i,j,n,num[100],s1,s2,e1,e2;\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n {\n  scanf(\"%d %d:%d %d:%d\",&num[i],&s1,&s2,&e1,&e2);\n  time=(e1-s1)*60+e2-s2;//重点 \n  t[num[i]]+=time;\n }\n for(i=0;i<n;i++)\n if(b[num[i]]==0)\n {\n  b[num[i]]=1;\n  c[p]=t[num[i]];\n  d[p]=num[i];\n  p++;\n }\n for(i=0;i<p-1;i++)\n for(j=0;j<p-1-i;j++)\n {\n  if(c[j]<c[j+1])\n  {\n   temp=c[j+1]; \n   c[j+1]=c[j];\n   c[j]=temp;\n   temp=d[j+1];\n   d[j+1]=d[j];\n   d[j]=temp;\n  }\n  else if(c[j]==c[j+1])\n  if(d[j]>d[j+1])\n  {\n   temp=d[j+1];\n   d[j+1]=d[j];\n   d[j]=temp;\n  }\n }\n for(i=0;i<p;i++)\n printf(\"%d %d\\n\",d[i],c[i]);\n return 0;\n} \n\n"
+    },
+    {
+        "id": "172",
+        "text": "#include<stdio.h>\nint count=0; \nint n;\nint a[9]={1,2,3,4,5,6,7,8,9};\nint b[10]={0};\nint main(){\n int k;\n scanf(\"%d\",&n);\n Function(1,0);\n printf(\"%d\",count);\n}\nvoid Function(int num,int space){\n int i,j,m,temp,sum;\n b[space]=num;//对每一个地方位置记录下选择 \n if(space==n-1)\n { \n  sum=0;\n  for(j=0,m=0;j<=space;j++)\n  {\n   if(b[j]==1)\n   {\n    temp=a[m];\n    for(i=1;b[j+i]==3;i++)\n    temp=temp*10+a[m+i];\n    sum+=temp;\n    m=m+i; \n   }\n   if(b[j]==2)\n   {\n    temp=a[m];\n    for(i=1;b[j+i]==3;i++) \n    temp=temp*10+a[m+i];\n    sum-=temp;\n    m=m+i;\n   }\n  }\n  if(sum==0)\n  count++;    \n  return;\n }\n for(i=1;i<=3;i++)\n Function(i,space+1);                                                 \n}\n\n"
+    },
+    {
+        "id": "174",
+        "text": "#include<stdio.h>\n#include<stdlib.h>\n\nint dp[201][20001]={};  //用一维数组不利于理解（准确的说是连我自己都晕了，手动滑稽*5）\nint main()\n{\n    int n;\n    int w[201]={};\n    int sum=0;  //物品的总价值\n    scanf(\"%d\",&n);\n    int i=0;\n    for(i=1;i<=n;i++)\n    {\n        scanf(\"%d\",w+i);\n        sum+=w[i];\n    }\n    int bagv=sum/2; //将所有物品总价值的二分之一作为背包容量\n    int j=0;\n    for(i=1;i<=n;++i)\n    {\n        if(w[i]>bagv)   //如果发现有物品的价值大于背包容量\n        {\n            int dif=w[i]-(sum-w[i]);    //最佳分配方案就是把这个物品分配给一个人，其他物品分配给另一个人\n            if(dif<0)dif=-dif;\n            printf(\"%d\",dif);\n            return 0;\n        }\n        for(j=1;j<=bagv;++j)    //标准的0-1背包算法，遍历背包容量从1到bagv的情况，目的是为后来遍历做准备\n        {\n            if(j<w[i])  //如果装不下\n            {\n                dp[i][j]=dp[i-1][j];    /*这个物品经过审核，i-1变为i，\n                     但没有被装入背包，用大小为j的容量装之前审核过的所有物品*/\n            }\n            else\n            {\n                dp[i][j]=(dp[i-1][j]>dp[i-1][j-w[i]]+w[i])?dp[i-1][j]:dp[i-1][j-w[i]]+w[i];\n                //就这么一条语句，我曾在此献上我的膝盖\n                /*比较\n                不把这个物品装入背包并用大小为j的容量装之前审核过的物品\n                (而装之前审核过的物品所能获得的最大价值在前面已经得出)\n                与\n                把这个物品装入背包后再用大小为j-w[i]的容量装之前审核过的物品\n                (而装之前审核过的物品所能获得的最大价值在前面已经得出)\n                哪一个的总价值更大\n                然后把较大者赋值给dp[i][j]\n                */\n            }\n//            printf(\"J:%d dp[%d][%d]:%d\\n\",j,i,j,dp[i][j]); //把这一行的注释解除可以得到下文图中的结果\n        }\n    }\n    int dif=dp[n][bagv]-(sum-dp[n][bagv]); /*只有当审核的物品数为n，且所取的背包容量为bagv时\n              才能100%保证所挑选出的物品的总价值最大*/\n    if(dif<0)dif=-dif;  //题目要求输出绝对值\n    printf(\"%d\",dif);\n    return 0;\n}\n"
+    },
+    {
+        "id": "175",
+        "text": "#include<stdio.h>\n\nstruct window {\n int depth;  //start from 1, the smaller the upper\n int cord[4];\n}win[10];   //step1\n\nint is_click(window& win, int posi[]) \n{\n if (posi[0] >= win.cord[0] && \\\n  posi[0] <= win.cord[2] && \\\n  posi[1] >= win.cord[1] && \\\n  posi[1] <= win.cord[3])\n  return 1;\n else\n  return 0; \n}   //step2\n\nvoid exchange(window win[], int i,int n) \n{\n for (int j = 0; j < n; j++) {\n  if (win[j].depth < win[i].depth) win[j].depth++;\n }\n win[i].depth = 1;\n}   //step 3\n\nint main()\n{\n int n, m;\n scanf(\"%d%d\", &n, &m);\n int click[50][2];\n for (int i = 0; i < n; i++) {    //input windows\n  for (int j = 0; j < 4; j++) {\n   scanf(\"%d\", &win[i].cord[j]);\n   win[i].depth = n - i;   \n  }\n }\n for (int i = 0; i < m; i++) {   //input click areas\n  for (int j = 0; j < 2; j++) {\n   scanf(\"%d\", &click[i][j]);\n  }\n }\n for (int i = 0; i < m; i++) {\n  int top[2] = { 0,11 };    //judge & find the upper page！\n  for (int k = 0; k < n; k++) {\n   if (is_click(win[k], click[i])) {\n    if (win[k].depth < top[1]) {\n     top[0] = k;\n     top[1] = win[k].depth;\n    }\n   }\n  }\n  if (top[1] == 11) {\n            printf(\"IGNORED\\n\");\n  }\n  else {\n   printf(\"%d\\n\", top[0] + 1);\n   exchange(win, top[0], n);\n  }\n  \n }\n return 0;\n}\n"
+    },
+    {
+        "id": "185",
+        "text": "\n#include <stdio.h>\n#include <math.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n \n float a,x;\n scanf(\"%f\",&a);\n x=sqrt(a);\n printf(\"%.5f\",x);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "198",
+        "text": "#include<stdio.h>\nint main()\n{\n int M,A,B,C,m,a,b,c;\n M=12;\n A=3;\n B=4;\n C=5;\n m=8;\n for(a=1;a<=A;a++)\n {\n  for(b=1;b<=B;b++)\n  {\n   for(c=1;c<=C;c++)\n   {\n    if(m==a+b+c)\n    printf(\"%d %d %d\\n\",a,b,c);\n   }\n  }\n }\n return 0;\n} \n"
+    },
+    {
+        "id": "211",
+        "text": "#include<stdio.h>\nint main()\n{\n float stu[5][4];\n float aver(float (*)[4]);\n int fals(float (*)[4]);\n int well(float (*)[4]);\n int i,j,ans2,ans3;\n float ans1=0;\n for(i=0;i<5;i++)\n for(j=0;j<4;j++)\n //scanf(\"%f\",&stu[i][j]);\n scanf(\"%f\",*(stu+i)+j);\n// float stu[][4]={{85,73,59,92},{93,95,89,88},{86,88,88,87},{59,51,52,68},{78,32,59,91}};\n ans1=aver(stu);\n ans2=fals(stu);\n ans3=well(stu);\n printf(\"%.1f %d %d\",ans1,ans2,ans3);\n \n}\nfloat aver( float (*q)[4])\n{\n int i;\n float ans=0;\n for(i=0;i<5;i++)\n ans+=*(*(q+i)+0);\n return ans/5.0;\n}\nint fals(float (*q)[4])\n{\n int i,j,dan=0,per=0;\n for(i=0;i<5;i++)\n {\n  for(j=0;j<4;j++)\n  {\n   if(*(*(q+i)+j)<60)\n   dan++;\n  }\n  if(dan>=2)\n  per++;  \n     dan=0;\n }\n return per;\n}\nint well(float (*p)[4])\n{\n int i,j,dan=0,per=0;\n float ans=0;\n for(i=0;i<5;i++)\n {\n  for(j=0;j<4;j++)\n  {\n   ans+=*(*(p+i)+j);\n   if(*(*(p+i)+j)>85)\n   dan++;\n  }\n  if(ans/4.0>90)\n  per++;\n  else if(dan==4)\n  per++;\n  dan=0;\n  ans=0;\n }\n return per;\n}\n"
+    },
+    {
+        "id": "213",
+        "text": " #include<stdio.h>\n int main()\n {\n  void place(int *p,int a,int b);\n  int num[50],*p1,m,n;\n  scanf(\"%d%d\",&m,&n);\n  for(p1=num;p1<(num+m*n);p1++)\n  scanf(\"%d\",p1);\n  p1=num;\n  place(p1,m,n);\n  return 0;\n } \n \n void place(int *p,int a,int b)\n {\n  int i,j,t,flag=1;\n  for(i=0;i<a*b-1;i++) \n  for(j=0;j<a*b-1-i;j++) \n  if(*(p+j+1)<*(p+j)) \n  {\n   t=*(p+j);\n   *(p+j)=*(p+j+1);\n   *(p+j+1)=t;\n  }\n  for(i=0;i<a;i++)\n  {\n   if(flag==1)\n   {\n    flag=0;\n    for(j=b*(i+1)-1;j>=b*i;j--)\n    {\n     printf(\"%3d\",*(p+j)); \n     if(j==b*i && i!=a-1) printf(\"\\n\");\n    }\n   }\n   else\n   {\n    flag=1;\n    for(j=b*i;j<b*(i+1);j++)\n    {\n     printf(\"%3d\",*(p+j));\n     if(j==b*(i+1)-1 && i!=a-1) printf(\"\\n\");\n    }\n   }\n  }\n }\n"
+    },
+    {
+        "id": "214",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n int count(char *s);\n char string[100];\n gets(string);\n count(string);\n return 0;\n } \n \n int count(char *s)\n {\n  int num[5]={0,0,0,0,0};\n  char *p=s;\n  while(*p!='\\0')\n  {\n   \n   if(*p>='A' && *p<='Z')\n   num[0]++;\n   else if(*p>='a' && *p<='z')\n   num[1]++;\n   else if(*p==' ')\n   num[2]++;\n   else if(*p>='0' && *p<='9')\n   num[3]++;\n   else\n   num[4]++;\n  p++;\n  }\n  printf(\"%d %d %d %d %d\",num[0],num[1],num[2],num[3],num[4]);\n }\n"
+    },
+    {
+        "id": "220",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n int len(char *str); \n char s[100000];\n gets(s);\n printf(\"%d\",len(s));\n return 0;\n}\n\nint len(char *str)\n{\n char *p=str;\n while(*p!='\\0')\n p++;\n return (p-str);\n}\n"
+    },
+    {
+        "id": "231",
+        "text": "#include<stdio.h>\nint main()\n{int max=0,number=0,i,word=0;\n char a[100];\n    gets(a);\n  for(i=0;a[i]!='\\0';i++)\n  {if(a[i]==' '||a[i]=='.'){if(number>max)\n                {max=number;}\n                number=0;\n         word=0;\n                }\n   else if(word==0)\n   {word=1;\n    number++;\n   }\n     else if(word==1&&a[i]!='.')\n    {number++;\n    }\n    }\n   printf(\"%d\",max);\n\n }\n"
+    },
+    {
+        "id": "232",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{char a[100],b[100];\n  int i,j,flag=1;\n  gets(a);\n   for(i=strlen(a)-1,j=0;i>=0;i--,j++) \n     {b[i]=a[j];\n     }\n  for(i=0;i<strlen(a);i++)\n  {if(a[i]==b[i]) flag=1;\n   else {\n   printf(\"no\");\n   flag=0;\n   break;\n           }\n  }\n  if(flag)printf(\"yes\");\n  return 0;\n}\n"
+    },
+    {
+        "id": "233",
+        "text": "#include<stdio.h>\n#include<string.h> \nvoid copystr(char *str,char *result,int m)\n{\n int i,len,index;\n len=strlen(str);\n index=0;\n if(m>len)\n {\n  printf(\"error\");\n }\n else\n {\n  for(i=m-1;i<len;i++)\n  {\n   result[index++]=str[i];\n  }\n }\n result[index]='\\0';\n}\nint main(void){\n char str[51];\n int m,i;\n char result[51];\n gets(str);\n scanf(\"%d\",&m);\n copystr(str,result,m);\n printf(\"%s\",result);\n \n return 0;\n}\n\n\n\n"
+    },
+    {
+        "id": "234",
+        "text": "#include <stdio.h>\nstruct student\n{\n int xuehao;\n char name[12];\n int A;\n int B;\n int C;\n double aver;\n};struct student stu[101],ex;\nint main()\n{\n int i,n,j;\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n {\n  scanf(\"%d %s %d %d %d\", &stu[i].xuehao, &stu[i].name, &stu[i].A, &stu[i].B, &stu[i].C);\n  stu[i].aver=(stu[i].A+stu[i].B+stu[i].C)*1.0/3.0;\n }\n for(i=0;i<n;i++)\n {\n  for(j=i+1;j<n;j++)\n  {\n   if(stu[i].aver>stu[j].aver)\n   {\n    ex=stu[j];\n    stu[j]=stu[i];\n    stu[i]=ex;\n   }\n   else if(stu[i].aver==stu[j].aver)//平均成绩相等时， \n   {\n    if(stu[i].xuehao<stu[j].xuehao)//比较学号大小 \n    {\n     ex=stu[j];\n        stu[j]=stu[i];\n        stu[i]=ex; \n    } \n   }\n  }\n }\n for(i=n-1;i>=0;i--)\n {\n     printf(\"%d %s %.1f\\n\",stu[i].xuehao,stu[i].name,stu[i].aver);\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "235",
+        "text": "#include<stdio.h>\n#define month 12\nint main()\n{char *str[month+1]={\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"Augest\",\"September\",\n \"Octorber\",\"November\",\"December\",\"wrong\"};\n int n,i;\n scanf(\"%d\",&n);\n if(n<1||n>12)\n {printf(\"%s\",*(str+12));\n }\n else\n {printf(\"%s\",*(str+n-1));\n }\nreturn 0;\n}\n\n"
+    },
+    {
+        "id": "242",
+        "text": "#include <stdio.h>\nstruct student\n{\n int xuehao;\n char name[12];\n int A;\n int B;\n int C;\n double aver;\n};struct student stu[101],ex;\nint main()\n{\n int i,n,j;\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n {\n  scanf(\"%d %s %d %d %d\", &stu[i].xuehao, &stu[i].name, &stu[i].A, &stu[i].B, &stu[i].C);\n  stu[i].aver=(stu[i].A+stu[i].B+stu[i].C)*1.0/3.0;\n }\n for(i=0;i<n;i++)\n {\n  for(j=i+1;j<n;j++)\n  {\n   if(stu[i].aver>stu[j].aver)\n   {\n    ex=stu[j];\n    stu[j]=stu[i];\n    stu[i]=ex;\n   }\n   else if(stu[i].aver==stu[j].aver)//平均成绩相等时， \n   {\n    if(stu[i].xuehao<stu[j].xuehao)//比较学号大小 \n    {\n     ex=stu[j];\n        stu[j]=stu[i];\n        stu[i]=ex; \n    } \n   }\n  }\n }\n for(i=n-1;i>=0;i--)\n {\n     printf(\"%d %s %.1f\\n\",stu[i].xuehao,stu[i].name,stu[i].aver);\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "243",
+        "text": "#include <stdio.h>\nstruct student\n{\n char name[22];\n int A;\n int B;\n int C;\n int D;\n int E;\n int F;\n int sum;\n};struct student stu[101],ex;\nint main()\n{\n int i,n,j;\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n {\n  scanf(\"%s %d %d %d %d %d %d\", &stu[i].name, &stu[i].A, &stu[i].B, &stu[i].C, &stu[i].D, &stu[i].E, &stu[i].F);\n  stu[i].sum=stu[i].A+stu[i].B+stu[i].C+stu[i].D+stu[i].E+stu[i].F;\n }\n for(i=0;i<n;i++)\n {\n  for(j=i+1;j<n;j++)\n  {\n   if(stu[i].sum>stu[j].sum)\n   {\n    ex=stu[j];\n    stu[j]=stu[i];\n    stu[i]=ex;\n   }\n   else if(stu[i].sum==stu[j].sum)//成绩相等时， \n   {\n    if(stu[i].F>stu[j].F) \n    {\n     ex=stu[j];\n        stu[j]=stu[i];\n        stu[i]=ex; \n    } \n   }\n  }\n }\n for(i=n-1;i>=0;i--)\n {\n     printf(\"%s %d %d\\n\", stu[i].name, stu[i].sum, stu[i].F);\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "249",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,i;\n scanf(\"%d\",&n);\n \n for(i=2;i<=n;i++)\n {\n  if(n%i==0) \n  {\n   printf(\"%d\",i);\n   n=n/i;\n   break;\n  }\n }\n for(;n>=i;n=n=n/i) \n {\n  for(i=2;i<=n;i++)\n  {\n  if(n%i==0) \n   {\n    printf(\"*%d\",i);\n    break;\n   }\n  }\n }\n return 0;\n } \n"
+    },
+    {
+        "id": "299",
+        "text": "#include<stdio.h>\nint main()\n{\n int profit,reward;\n scanf(\"%d\",&profit);\n if(profit<=100000){\n  reward=profit*0.1;}\n  else if(profit<=200000){\n   reward=100000*0.1+ (profit-100000)*0.075;}\n  else if(profit<=400000){\n   reward=100000*0.1+100000*0.075+(profit-200000)*0.05;}\n  else if(profit<=600000){\n   reward=100000*0.1+100000*0.075+20000*0.05+(profit-400000)*0.03;}\n  else if(profit<=1000000){\n   reward=100000*0.1+100000*0.075+200000*0.05+200000*0.03+(profit-600000)*0.015;}\n  else if(profit>1000000){\n   reward=100000*0.1+100000*0.075+200000*0.05+200000*0.03+400000*0.015+(profit-1000000)*0.01;}\n  printf(\"%d\",reward);\n  return 0;\n}\n"
+    },
+    {
+        "id": "300",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n int n,d1,d2,d3,d4,d5,d6,d7,d8;\n scanf(\"%d\",&n);\n if(n<10)\n  printf(\"1\"); \n else if(n<100){\n   d8=n/10,n=n%10;\n   n=n+d8;\n    printf(\"2\");} \n else if(n<1000){\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10;\n   n=n+d7+d8; \n   printf(\"3\");} \n else if(n<10000){\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10; \n   n=n+d7+d8+d6;\n    printf(\"4\");} \n else if(n<100000){\n   d5=n/10000,n=n%10000;\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10; \n   n=n+d7+d8+d6+d5;\n    printf(\"5\");} \n else if(n<1000000){\n   d4=n/100000,n=n%100000;\n   d5=n/10000,n=n%10000;\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10; \n   n=n+d7+d8+d6+d5+d4;\n    printf(\"6\");} \n else if(n<10000000){\n   d3=n/1000000,n=n%1000000;\n   d4=n/100000,n=n%100000;\n   d5=n/10000,n=n%10000;\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10; \n   n=n+d7+d8+d6+d5+d4+d3;\n    printf(\"7\");} \n else if(n<100000000){ \n      d2=n/10000000,n=n%10000000;\n   d3=n/1000000,n=n%1000000;\n   d4=n/100000,n=n%100000;\n   d5=n/10000,n=n%10000;\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10;\n   n=n+d7+d8+d6+d5+d4+d3+d2;\n   printf(\"8\");} \n else{\n   d1=n/100000000,n=n%100000000;\n   d2=n/10000000,n=n%10000000;\n   d3=n/1000000,n=n%1000000;\n   d4=n/100000,n=n%100000;\n   d5=n/10000,n=n%10000;\n   d6=n/1000,n=n%1000;\n   d7=n/100,n=n%100;\n   d8=n/10,n=n%10;\n   n=n+d7+d8+d6+d5+d4+d3+d2+d1;\n   printf(\"9\");} \n return 0;\n}\n"
+    },
+    {
+        "id": "302",
+        "text": " #include<stdio.h>\nint main()\n{\n int p,i,j,iSum=0,iNum=1,m;\n /*i待判数，j判断循环数，\n iNum自2起的已经找到的素数个数 ，\n iSum目标素数和,\n m用于标记整除情况*/ \n scanf(\"%d\",&p);\n /*寻找素数*/ \n for(i=3; ;i++)\n {\n  m=0;\n  /*判断一个数是否为素数*/ \n  for(j=2;j<i;j++)\n  {\n   /*判断一个数是否可以被某个小于自己的数整除*/ \n   if(i%j!=0)\n   {\n    m++;\n   }\n   else\n   {\n    continue;\n   }\n  }\n  /*通过m标记量识别并捕捉目标素数*/ \n  if(m==i-2)\n  {\n   iNum++;\n   if(iNum<=p+10&&iNum>=p)\n   {\n    iSum+=i;\n   }\n  }\n  /*捕捉完后终止循环*/ \n  else if(iNum>p+10)\n  {\n   break;\n  }\n }\n /*s输出结果*/ \n printf(\"%d\",iSum);\n return 0;\n}\n"
+    }
+]

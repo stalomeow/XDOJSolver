@@ -1,0 +1,146 @@
+[
+    {
+        "id": "51",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c,d,i;\n scanf(\"%d %d %d %d\",&a,&b,&c,&d);\n i=a;\n if(i<b) i=b;\n if(i<c) i=c;\n if(i<d) i=d;\n printf(\"%d\",i);\n return 0;\n}\n"
+    },
+    {
+        "id": "52",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n char a1;\n a1=getchar();\n if(a1<='z'&&a1>='a'&&a1<='Z'&&a1>='A')\n     if(a1<='z'&&a1>='a')\n      printf(\"%c\",a1);\n     else{\n    a1=a1+32;\n      printf(\"%c\",a1); \n      }\n else\n  printf(\"%c\",a1);    \n return 0;\n}\n\n"
+    },
+    {
+        "id": "53",
+        "text": "#include<stdio.h>\nint main()\n{\n int m;\n scanf(\"%d\",&m);\n if(m>=90) printf(\"A\");\n else if(m>=80&&m<90) printf(\"B\");\n else if(m>=70&&m<80) printf(\"C\");\n else if(m>=60&&m<70) printf(\"D\");\n else if(m<70) printf(\"E\");\n return 0;\n}\n"
+    },
+    {
+        "id": "54",
+        "text": "#include <stdio.h>\nint main()\n{\n int n, k1, k2, a, b, c;\n scanf(\"%d\", &n);\n for( k1 = 0 ; k1 < 1000 ; k1++ )\n {\n  c = k1 % 10;\n  b = ( k1 - c ) / 10 % 10;\n  a = ( k1 - c - 10 * b ) / 100;\n  k2 = a + 10 * b + 100 * c;\n  if( k1 + k2 == n)\n  {\n   printf(\"%d %d %d\\n\", a, b, c);\n  }\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "55",
+        "text": "#include <stdio.h>\nint function( int n );\nint main()\n{\n int i, n;\n double m=0;\n scanf(\"%d\", &n);\n for( i = 1; i <= n; i++ )\n {\n  double A = function( i + 2 );\n  double B = function( i + 1 );\n  m += A / B;\n }\n printf( \"%.2f\", m );\n return 0;\n}\nint function( int n )\n{\n int h;\n if( n == 1||n == 2 )\n  h = 1;\n else\n  h = function( n-2 ) + function( n-1 ) ;\n return ( h );\n}\n\n"
+    },
+    {
+        "id": "56",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c,s;\n scanf(\"%d %d %d\",&a,&b,&c); \n if(c*c!=a*a+b*b) printf(\"no\");\n else printf(\"%d\",s=a*b);\n return 0;\n}\n"
+    },
+    {
+        "id": "60",
+        "text": "#include<stdio.h>\nint main()\n{\n printf(\"C programming language is useful!\\n I like it very much.\");\n return 0;\n}\n"
+    },
+    {
+        "id": "61",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c,d;\n scanf(\"%d\",&d);\n a=d/100;\n b=d/10-a*10;\n c=d-a*100-b*10;\n printf(\"%d %d %d\",a,b,c);\n return 0;\n}\n"
+    },
+    {
+        "id": "62",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c,d,e,f,g;\n scanf(\"%d %d\",&a,&b);\n c=a+b;\n d=a-b;\n e=a*b;\n f=a/b;\n g=a%b;\n printf(\"%d \",c);\n printf(\"%d \",d);\n printf(\"%d \",e);\n printf(\"%d \",f);\n printf(\"%d \",g);\n return 0;\n}\n"
+    },
+    {
+        "id": "63",
+        "text": "#include<stdio.h>\nint main()\n{\n int S,A,T;\n scanf(\"%d\",&S);\n A=S-3500;\n if(S<3500) T=0;\n else if(A<=1500) T=0.03*A;\n else if(A>1500&&A<=4500) T=0.03*1500+0.1*(A-1500);\n else if(A>4500&&A<=9000) T=0.03*1500+0.1*3000+0.2*(A-4500);\n else if(A>9000&&A<=35000) T=0.03*1500+0.1*3000+0.2*4500+0.25*(A-9000);\n else if(A>35000) T=0.03*1500+0.1*3000+0.2*4500+0.25*26000+0.3*(A-35000);\n printf(\"%d\",S-T);\n return 0;\n} \n"
+    },
+    {
+        "id": "64",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\n\n/* run this program using the console pauser or add your own getch, system(\"pause\") or input loop */\n\nint main(int argc, char *argv[]) {\n int n, i;\n  scanf(\"%d\", &n);\n   for (i = n * n - n + 1; i <= n * n + n - 1; i = i + 2) \n    {  printf(\"%d \", i); }\n return 0;\n}\n\n"
+    },
+    {
+        "id": "65",
+        "text": "#include <stdio.h>\nint main()\n{\n int n, m;\n scanf(\"%d\", &n);\n for(m=0;;m=0)\n {\n  for(m=0;n>0;n=n/10)\n  {\n   m=m+n%10;\n  }\n  if(m<10)\n   break;\n  else\n   n=m;\n }\n printf(\"%d\", m);\n return 0;\n}\n"
+    },
+    {
+        "id": "67",
+        "text": "#include <stdio.h>\nint main()\n{\n int n,k,i,h=0,a[100]={0};\n scanf(\"%d %d\",&n,&k);\n for(i=0;i<n;i++)\n  scanf(\"%d\",&a[i]);\n for(i=0;i<n;i++)\n {\n  if(k==a[i])\n  {\n   printf(\"%d \",i);\n   h=1;\n  }   \n }\n if(0==h)\n  printf(\"-1\");\n return 0;\n}\n"
+    },
+    {
+        "id": "68",
+        "text": "#include <stdio.h>\n#include <stdlib.h>\nint main() {\n int a,y,n;\n scanf(\"%d%d\",&a,&n);\n if(a%400==0||(a%100!=0&&a%4==0)) {\n      if(n<=31)\n      printf(\"%d %d\",1,n);\n     else if(n<=60)\n      printf(\"%d %d\",2,n-31);\n     else if(n<=91)\n      printf(\"%d %d\",3,n-60);\n     else if(n<=121)\n      printf(\"%d %d\",4,n-91);\n     else if(n<=152)\n      printf(\"%d %d\",5,n-121);\n     else if(n<=182)\n      printf(\"%d %d\",6,n-152);\n     else if(n<=213)\n      printf(\"%d %d\",7,n-182);\n     else if(n<=244)\n      printf(\"%d %d\",8,n-213);\n     else if(n<=274)\n      printf(\"%d %d\",9,n-244);\n     else if(n<=305)\n      printf(\"%d %d\",10,n-274);\n     else if(n<=335)\n      printf(\"%d %d\",11,n-305);\n     else \n      printf(\"%d %d\",12,n-335);\n    }\n  else{\n      if(n<=31)\n      printf(\"%d %d\",1,n);\n     else if(n<=59)\n      printf(\"%d %d\",2,n-31);\n     else if(n<=90)\n      printf(\"%d %d\",3,n-59);\n     else if(n<=120)\n      printf(\"%d %d\",4,n-90);\n     else if(n<=151)\n      printf(\"%d %d\",5,n-120);\n     else if(n<=181)\n      printf(\"%d %d\",6,n-151);\n     else if(n<=212)\n      printf(\"%d %d\",7,n-181);\n     else if(n<=243)\n      printf(\"%d %d\",8,n-212);\n     else if(n<=273)\n      printf(\"%d %d\",9,n-243);\n     else if(n<=304)\n      printf(\"%d %d\",10,n-273);\n     else if(n<=334)\n      printf(\"%d %d\",11,n-304);\n     else \n      printf(\"%d %d\",12,n-334);\n    }\n  \n  \n  \n return 0;\n}\n"
+    },
+    {
+        "id": "70",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,i,sum,j,a[100][100];\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n for(j=0;j<n;j++)\n scanf(\"%d\",&a[i][j]);\n printf(\"%d \",a[0][0]);\n for(sum=1;sum<n*2-1;sum++)\n {\n  if(sum<n)\n  {\n   if(sum%2==1)\n   {\n    for(i=0;i<sum+1;i++)\n    printf(\"%d \",a[i][sum-i]);\n   }\n   else\n   {\n    for(i=0;i<sum+1;i++)\n    printf(\"%d \",a[sum-i][i]);\n   }\n  }\n  else\n  {\n   if(sum%2==1)\n   {\n    for(i=0;i<2*n-1-sum;i++)\n    printf(\"%d \",a[sum-n+1+i][n-1-i]);\n   }\n   else\n   {\n    for(i=0;i<2*n-1-sum;i++)\n    printf(\"%d \",a[n-1-i][sum-n+1+i]);\n   }\n  }\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "71",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,m,t,k;\n int square[20][20];\n int i,j,starti=-1,startj=-1,num[51]={0},sum=0; \n scanf(\"%d %d %d %d\",&n,&m,&t,&k);\n for(i=0;i<n;i++)\n {\n  for(j=0;j<m;j++)\n  {\n  scanf(\"%d\",&square[i][j]);\n  if(square[i][j]==k&&starti==-1)\n  {\n   starti=i;\n   startj=j;\n  }\n  }\n }\n i=starti;\n j=startj;\n for(i=starti;square[i][j]==k;i++) \n {\n  for(j=startj;square[i][j]==k;j++)\n  {\n   if(i-1>=0)\n   num[square[i-1][j]]=1;\n   if(j-1>=0)\n   num[square[i][j-1]]=1;\n   if(i+1<n)\n   num[square[i+1][j]]=1;\n   if(j+1<m)\n   num[square[i][j+1]]=1;\n  }\n  j=startj;\n }\n for(i=0;i<51;i++)\n {\n  sum+=num[i];\n }\n if(num[k]==1) sum--;\n printf(\"%d\",sum);\n \n}\n"
+    },
+    {
+        "id": "72",
+        "text": "#include <stdio.h>\n#include <string.h>\nint main()\n{\n char tmpstr[100]={0};//定义一个足够大的字符数组用来容纳输入 \n char maxline[100]={0};//用来保存当前最长行的内容 \n char endline[]=\"***end***\";//结束行标志 \n int maxlen=0;//用来记录当前长度的最高纪录 \n while(1)\n {\n  gets(tmpstr);//接收一行用户输入        ps：用gets输入一行文本 \n  if(!strcmp(tmpstr,endline)) break;//如果是结束行则跳出      ps：用strcmp比较 \n  if(strlen(tmpstr)>maxlen)// ps：用strcpy保存新行 \n  {\n   maxlen=strlen(tmpstr);//保存最高纪录 \n   strcpy(maxline,tmpstr);//保存当前最长行的内容 \n  }\n }\n printf(\"%d\\n\",maxlen);\n printf(\"%s\\n\",maxline);//ps：用printf/puts输出结果 \n return 0;\n} \n"
+    },
+    {
+        "id": "73",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n char str[50],zimu;\n int i,temp,shuzi=0;//数字储存器;\n gets(str);\n for (i=0;i<strlen(str);i++)//遍历每一个字符 \n {\n  if ('0'<=str[i] && str[i]<='9')//当str[i]是数字 \n  {\n   zimu=str[i-1];//str[i]的前一位是字母 \n   for (;'0'<= str[i] && str[i]<='9';i++)//算出数的值,同时移动输入的字符串的指针 \n   {\n    shuzi=shuzi*10 +str[i]-48;\n   }\n   for(temp=0;temp<shuzi-1;temp++)//输出 temp - 1 次 \n   {\n    printf(\"%c\",zimu);\n   }\n   shuzi=0;//数字储存器归零 \n   i--;//指针回移 \n  }\n  else//当str[i]是字母 \n  {\n   printf(\"%c\", str[i]);\n  }\n }\n \n return 0;\n} \n"
+    },
+    {
+        "id": "75",
+        "text": "#include <stdio.h>\nint main()\n{\n int img[256][256];//存储图像的数组 \n int a[256]={0};//统计灰度频次的数组     数组初始化！！！ \n int m,n,i,j;\n scanf(\"%d %d\",&m,&n);//接受图像的大小 \n for(i=0;i<m;i++)\n {\n  for(j=0;j<n;j++)\n  {\n   scanf(\"%d\",&img[i][j]);//接收像素的灰度值 \n   a[img[i][j]]++;//对每级灰度进行统计 \n  }\n }\n for(i=0;i<256;i++)\n {\n  if(a[i]!=0) \n   printf(\"%d %d\\n\",i,a[i]);\n }\n return 0;\n } \n"
+    },
+    {
+        "id": "77",
+        "text": "#include<stdio.h>\n#include<string.h>\nint convert(char str1[])\n{\n int i,sum=0;\n for(i=0;str1[i]!='\\0';i++)\n    sum=sum*10+str1[i]-'0';\n return sum;\n} \n\nint main()\n{\n char str[3][10],op;\n int i,index,j,num[2];\n for(i=0;i<3;i++)\n    scanf(\"%s\",str[i]);\n for(i=0;i<3;i++)\n {\n  if(str[i][0]<'0')\n  {\n   op=str[i][0];\n   index=i;\n  }\n }\n for(i=0,j=0;i<3;i++)\n {\n  if(i!=index)\n  {\n   num[j]=convert(str[i]);\n   j++;\n  }\n }\n switch(op)\n {\n  case'+':printf(\"%d\",num[0]+num[1]);break;\n  case'-':printf(\"%d\",num[0]-num[1]);break;\n  case'*':printf(\"%d\",num[0]*num[1]);break;\n  case'/':printf(\"%d\",num[0]/num[1]);break;\n  case'%':printf(\"%d\",num[0]%num[1]);break;\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "78",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n int N,M,C,i,j,sum=0,v,q;\n char a[20][21];\n scanf(\"%d %d %d\",&N,&M,&C);\n for(i=0;i<N;i++)\n  scanf(\"%s\",a[i]);\n for(v=0,i=0,j=C-1;;v++)\n { \n  q=a[i][j];\n  if(q=='W') \n  {\n   sum++;\n   a[i][j]=1;\n   j--; \n  }\n  if(q=='E') \n  {\n   sum++;\n   a[i][j]=1;\n   j++; \n  }\n  if(q=='N') \n  {\n   sum++;\n   a[i][j]=1;\n   i--; \n  }\n  if(q=='S') \n  {\n   sum++;\n   a[i][j]=1;\n   i++; \n  }\n  if((i<0)||(i>=N)||(j<0)||(j>=M))\n  {\n   printf(\"out %d\",sum);\n   break;\n  }\n  if(q==1)\n  {\n   printf(\"loop %d\",sum);\n   break;\n  }\n }\n return 0;\n } \n"
+    },
+    {
+        "id": "79",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c;\n double A;\n scanf(\"%d%d%d\",&a,&b,&c);\n A=(a+b+c)/3.0;\n printf(\"%.2f\",A);\n return 0;\n}\n"
+    },
+    {
+        "id": "80",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n int N,M,C,i,j,sum=0,v,q;\n char a[20][21];\n scanf(\"%d %d %d\",&N,&M,&C);\n for(i=0;i<N;i++)\n  scanf(\"%s\",a[i]);\n for(v=0,i=0,j=C-1;;v++)\n { \n  q=a[i][j];\n  if(q=='W') \n  {\n   sum++;\n   a[i][j]=1;\n   j--; \n  }\n  if(q=='E') \n  {\n   sum++;\n   a[i][j]=1;\n   j++; \n  }\n  if(q=='N') \n  {\n   sum++;\n   a[i][j]=1;\n   i--; \n  }\n  if(q=='S') \n  {\n   sum++;\n   a[i][j]=1;\n   i++; \n  }\n  if((i<0)||(i>=N)||(j<0)||(j>=M))\n  {\n   printf(\"out %d\",sum);\n   break;\n  }\n  if(q==1)\n  {\n   printf(\"loop %d\",sum);\n   break;\n  }\n }\n return 0;\n } \n"
+    },
+    {
+        "id": "81",
+        "text": "#include <stdio.h>\n#include <string.h>\nint main()\n{\n char s[100][100],str[100], c[100];\n int i, j, n, k, l1, l2, isPrime;\n gets(str);//           所要查找的字符串是   str \n scanf(\"%d %d\",&isPrime,&n);\n for(i=0;i<n+1;i++)//输入字符串们 \n  gets(s[i]);\n for(i=0;i<n+1;i++)\n {\n  if(0==isPrime)//对大小写不敏感 \n  {\n     strlwr(s[i]);//   strlwr函数：将字符串全部转换为小写 \n     strlwr(str);\n  }\n  l1=strlen(s[i]);\n  l2=strlen(str);\n  for(j=0;j<=l1-l2;j++)\n  {\n   for(k=0;k<l2;k++)\n    c[k]=s[i][j+k];\n   if(0==strcmp(c,str))//比较得出两字符串相同时 \n   {\n    printf(\"%s\\n\",s[i]);\n    break; \n   }\n  }\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "82",
+        "text": "#include <stdio.h>\n#include <string.h>\nint main()\n{\n char code[100]={0};\n gets(code);\n int grades=1,a=0,b=0,c=0,d=0,temp=0,i;\n if(0==strlen(code))\n  grades=0;\n else\n {\n  if(strlen(code)>8)\n   grades++;//超过八位+1分 \n  for(i=0;;i++)\n  {\n   if(code[i]=='\\0')\n    break;\n   else if(code[i]>='a' && code[i]<='z')\n    a=1;//a代表小写字母 \n   else if(code[i]>='0' && code[i]<='9')\n    b=1;//b代表数字 \n   else if(code[i]>='A' && code[i]<='Z')\n    c=1;//c代表大写字母\n   else\n    d=1; //d代表非字母数字的字符 \n  }\n }\n temp=a+b+c+d;//temp为密码包含的字符种类数 \n if(temp!=0) \n  temp--;//多一类加一分（加的分始终比种类数少一 \n grades+=temp;\n printf(\"%d\",grades);\n return 0;\n}\n"
+    },
+    {
+        "id": "83",
+        "text": "#include <stdio.h>\nint main()\n{\n int a[100][100];\n int b[100][100];\n int m, n, i, j;\n scanf(\"%d %d\",&n,&m);//n行m列 \n for(i=0;i<n;i++)\n {\n  for(j=0;j<m;j++)\n   scanf(\"%d\",&a[i][j]);\n }\n for(i=0; i<m; i++)\n { \n  for(j=0; j<n; j++)\n  {\n   printf(\"%d \",a[n-j-1][i]);\n   if(0==n-j-1)\n    printf(\"\\n\");\n  }\n }\n return 0; \n}\n"
+    },
+    {
+        "id": "84",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n char a[201],b[201];\n gets(a);\n int i,j;\n while(1)\n {\n  gets(b);\n  if(strcmp(b,\"pwd\")==0) break;\n  else\n  {\n   if(strcmp(b,\"cd /\")==0)\n   {\n    strcpy(a,\"/\"); \n   }\n   else if(b[4]=='.')\n   {\n    if(strcmp(a,\"/\")!=0)\n    {\n     for(i=strlen(a)-1;i>=0;i--)\n     {\n      if(a[i]!='/') a[i]=0;\n      else if(a[i]=='/'&& strlen(a)>1)\n      {\n       a[i]=0;\n       break;\n      }\n     }\n    }\n   }\n   else if(b[3]=='/'&&b[4]!=0)\n   {\n    for(i=0;i<strlen(a);i++)\n     a[i]=1;   \n    for(i=3;b[i]!='\\0';i++)\n    {\n     a[i-3]=b[i];\n    }\n    a[i+4]=0;\n   }\n   else\n   {\n    if(strcmp(a,\"/\")==0)\n    {\n     j=1;\n     for(i=3;b[i]!='\\0';i++,j++)\n     {\n      a[j]=b[i];\n     }\n     a[j]='\\0';\n    }\n    else\n    {\n \n     i=strlen(a);\n     a[i]='/';\n     i++;\n     for(j=3;b[j]!='\\0';i++,j++)\n     {\n      a[i]=b[j];\n     }\n     a[++i]='\\0';\n    }\n   } \n  }\n }\n puts(a);\n } \n\n"
+    },
+    {
+        "id": "85",
+        "text": "#include<stdio.h>\n#include<string.h>\n#include<math.h>\nint main()\n{\n char s1[101],s2[101],t[101];\n int i,j;\n float len1,len2,max=0;\n int a[100][100]={0};\n float similar;\n gets(s1);//输入 \n gets(s2);\n len1=strlen(s1);\n len2=strlen(s2);\n for(i=0;i<len1;i++)\n {\n  for(j=0;j<len2;j++)\n  {\n   if(s1[i]==s2[j]||32==abs(s1[i]-s2[j]))\n   {\n    if(i!=0&&j!=0)\n     a[i][j]=a[i-1][j-1]+1;\n    else\n     a[i][j]=1;\n   }\n  }\n }\n for(i=0;i<len1;i++)//寻找矩阵中的最大值 \n {\n  for(j=0;j<len2;j++)\n  {\n   if(a[i][j]>max)\n    max=a[i][j];\n  }\n }\n similar=2.0*max/(len1+len2);//计算相似度 \n printf(\"%.3f\",similar);//输出 \n return 0; \n }\n"
+    },
+    {
+        "id": "86",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,a,b,c,d,i,j,k,count=0;\n int lattice[100][100]={0};\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n {\n  scanf(\"%d %d %d %d\",&a,&b,&c,&d);\n  for(j=a;j<c;j++)\n     for(k=b;k<d;k++)\n        lattice[j][k]=1;\n }\n for(i=0;i<100;i++)\n {\n  for(j=0;j<100;j++)\n  {\n   if(lattice[i][j]==1)\n   count++;\n  }\n }\n printf(\"%d\",count);\n return 0;\n} \n"
+    },
+    {
+        "id": "87",
+        "text": "#include<stdio.h>\nint main()\n{\n int a[1000], m=0,i,n=1;\n for(i=0;i<1000;i++)\n {\n  scanf(\"%d\",&a[i]);\n  if(a[i]==0)\n  break;\n }\n for(i=0;i<1000;i++)\n {\n  if(a[i]==1)\n   m++;\n  if(a[i]==2)\n  {\n   if(a[i-1]!=2)\n   {\n    m=m+2;\n    n=1;\n   }\n   if(a[i-1]==2)\n   {\n    n++;\n    m=m+2*n;\n   }\n  }\n  if(a[i]==0)\n   break;\n }\n printf(\"%d\",m);\n return 0;\n}\n"
+    },
+    {
+        "id": "88",
+        "text": "#include<stdio.h>\n#include<string.h>\nint main()\n{\n char s[13];\n int x=0,i,j,k;\n gets(s);\n for(i=0,k=0;i<11;i++,k++)\n {\n  j=s[i]-48;\n  x+=j*(k+1);\n  if(0==i||4==i)\n   i++;\n }\n x=x%11;\n if(10!=x&&x==s[12]-48)\n {\n  printf(\"Right\");\n  return 0;\n } \n if(10==x&&s[12]=='X')\n {\n  printf(\"Right\");\n  return 0;\n }\n else\n {\n  if(10!=x)\n   s[12]=x+48;\n  if(10==x)\n   s[12]='X'; \n  printf(\"%s\",s);\n }\n return 0;\n}\n"
+    },
+    {
+        "id": "90",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,c,d,sum;\n scanf(\"%d\",&a);\n b=a/100;\n c=(a-100*b)/10;\n d=a-100*b-10*c;\n sum=b+c+d;\n printf(\"%d\",sum);\n return 0;\n}\n"
+    },
+    {
+        "id": "92",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int n,a,b,c,d,e,f;//100元 a张，50元b张，20元c张，10元d张，5元e张，1元f张 \n scanf(\"%d\",&n);\n a=n/100;\n b=(n-100*a)/50;\n c=(n-100*a-50*b)/20;\n d=(n-100*a-50*b-20*c)/10;\n e=(n-100*a-50*b-20*c-10*d)/5;\n f=n-100*a-50*b-20*c-10*d-5*e;\n printf(\"%d %d %d %d %d %d\",a,b,c,d,e,f);\n return 0; \n}\n\n"
+    },
+    {
+        "id": "93",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,max,min,i,n;\n scanf(\"%d %d\",&a,&b);\n max=min=a;\n if(b>max) max=b;\n if(b<min) min=b;\n printf(\"%d %d\",i=max%10,n=min*min);\n return 0;\n}\n"
+    },
+    {
+        "id": "94",
+        "text": "#include<stdio.h>\nint main()\n{\n int h,i,j,k,a,b,c,d;\n scanf(\"%d %d %d %d\",&h,&i,&j,&k);\n a=h;\n if(i<a) a=i;\n if(j<a) a=j;\n if(k<a) a=k;\n d=h;\n if(i>d) d=i;\n if(j>d) d=j;\n if(k>d) d=k; \n c=d; \n if(i>b&&i<c) c=i;\n if(j>b&&j<c) c=j;\n if(k>b&&k<c) c=k; \n b=c;\n if(i>a&&i<b) b=i;\n if(j>a&&j<b) b=j;\n if(k>a&&k<b) b=k;\n printf(\"%d %d %d %d\",a,b,c,d);\n return 0;\n}\n"
+    },
+    {
+        "id": "97",
+        "text": "#include <stdio.h>\nint main()\n{\n printf(\"a b c d e f g h i j k l m n o p q r s t u v w x y z\\n\");\n printf(\"z y x w v u t s r q p o n m l k j i h g f e d c b a\");\n return 0;\n } \n"
+    }
+]

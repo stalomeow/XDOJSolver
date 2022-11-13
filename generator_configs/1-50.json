@@ -1,0 +1,150 @@
+[
+    {
+        "id": "2",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int n,i,k;\n int a[1000];\n \n scanf(\"%d\",&n);\n \n for(i=0;i<n;i++)\n {\n  scanf(\"%d\",&a[i]);\n }\n for(i=0,k=1;i<n-1;i++)\n {\n  if(a[i]!=a[i+1])\n   k++; \n }\n \n printf(\"%d\",k);\n \n return 0;\n } \n\n"
+    },
+    {
+        "id": "3",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int n,i,j,k,mix;\n \n int a[1000];\n \n scanf(\"%d\",&n);\n \n for(i=0;i<n;i++)\n {\n  scanf(\"%d\",&a[i]); \n } \n \n for(i=0,k=10000;i<n;i++)\n {\n  for(j=0;j<i;j++)//不能循环到自己 \n  {\n   if(a[i]==a[j])\n   {\n    k=0;\n    break;\n   }\n   \n   if(a[i]>a[j])\n    mix=a[i]-a[j];\n   else\n    mix=a[j]-a[i];\n    \n   if(mix<k)\n    k=mix;  \n  }\n }\n \n printf(\"%d\\n\",k);\n \n return 0;\n } \n\n"
+    },
+    {
+        "id": "4",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b;\n char c;\n scanf(\"%d%c%d\",&a,&c,&b);\n if(c=='+')\n printf(\"%d+%d=%d\\n\",a,b,a+b);\n if(c=='-')\n printf(\"%d-%d=%d\\n\",a,b,a-b);\n if(c=='*')\n printf(\"%d*%d=%d\\n\",a,b,a*b);\n if(c=='/')\n printf(\"%d/%d=%d\\n\",a,b,a/b);\n if(c=='%') \n printf(\"%d%%d=%d\\n\",a,b,a%b);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "5",
+        "text": "#include <stdio.h>\nint main()\n{\n int a[30][30];\n int b[30][30];\n int n,m,i,j;\n scanf(\"%d %d\",&n,&m);\n for(i=0;i<n;i++)\n {\n  for(j=0;j<m;j++)\n  {\n   scanf(\"%d\",&a[i][j]);\n   b[i][j]=a[i][j];\n  }\n }\n for(i=0;i<n;i++)\n {\n  for(j=0;j<m;j++)\n  {\n   if((a[i][j]==a[i][j+1])&&(a[i][j]==a[i][j+2]))\n   {\n    b[i][j]=0;\n    b[i][j+1]=0;\n    b[i][j+2]=0;\n   }\n  }\n }\n for(j=0;j<m;j++)\n {\n  for(i=0;i<n;i++)\n  {\n   if((a[i][j]==a[i+1][j])&&(a[i][j]==a[i+2][j]))\n   {\n    b[i][j]=0;\n    b[i+1][j]=0;\n    b[i+2][j]=0;\n   }\n  }\n }\n for(i=0;i<n;i++)\n {\n  for(j=0;j<m;j++)\n  {\n   printf(\"%d \",b[i][j]);\n   if(j==m-1)\n    printf(\"\\n\");\n  }\n }\n return 0;\n}\n\n\n\n"
+    },
+    {
+        "id": "6",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int n,m,i,j,t,u,num;\n int a[1000];\n int b[1000]={0};\n \n scanf(\"%d\",&n);\n \n for(i=0;i<n;i++)\n {\n  scanf(\"%d\",&a[i]);\n }\n \n for(i=0;i<n;i++)\n {\n  k=a[i];\n  while(k!=0)\n  {\n   b[i]=b[i]+k%10;\n   k/=10;\n  }\n }\n \n for(i=0;i<n-1;i++)\n {\n  for(j=i+1;j<n;j++)\n  {\n   if(b[j]>b[i]) \n   {\n   t=b[i];       u=a[i];\n   b[i]=b[j];    a[i]=a[j];\n   b[j]=t;       a[j]=u;\n   } \n   if(b[j]==b[i])\n   {\n    if(a[j]<a[i])\n    {\n     t=b[i];       u=a[i];\n     b[i]=b[j];    a[i]=a[j];\n     b[j]=t;       a[j]=u;\n    }\n   }\n  }\n }\n \n for(i=0;i<n;i++)\n {\n  printf(\"%d %d\\n\",a[i],b[i]);\n }\n \n return 0;\n } \n\n\n    \n"
+    },
+    {
+        "id": "7",
+        "text": "#include<stdio.h>\nint main()\n{\n int day,n,u,z,a,b,c,d,e,f,g;\n scanf(\"%d %d %d\",&day,&n,&u);\n z=u%10;\n if(day==6||day==7)\n  printf(\"%d no\",z);\n else\n {\n  if(n<=200)\n   printf(\"%d no\",z);\n  else if(n<=400)\n    switch(day)\n    {\n     case 1:a=1,b=6; break;\n     case 2:a=2,b=7; break;\n     case 3:a=3,b=8; break;\n     case 4:a=4,b=9; break;\n     case 5:a=5,b=0; break;\n    }\n  else\n    switch(day)\n    {\n     case 1||3||5:c=1,d=3,e=5,f=7,g=9; break;\n     default:c=0,d=2,e=4,f=6,g=8; break;\n    }\n  if(z==a||z==b||z==c||z==d||z==e||z==f||z==g)\n   printf(\"%d yes\",z);\n  else printf(\"%d no\",z);\n }\n return 0;\n}\n\n\n\n"
+    },
+    {
+        "id": "9",
+        "text": "#include <stdio.h>\nint main()\n{\n int num1,num2;\n float a,b;\n scanf(\"%d\",&num1);\n scanf(\"%d\",&num2);\n a = 7.86*4*3.1415926*num1*num1*num1/24000;\n b = 19.3*4*3.1415926*num2*num2*num2/24000;\n printf(\"%.3f  %.3f\", a,b);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "10",
+        "text": "#include <stdio.h>\nint main()\n{\n int a;\n float b;\n scanf(\"%d\", &a);\n b = (a - 32)*5/9.;\n printf(\"%.2f\", b);\n return 0;\n}\n"
+    },
+    {
+        "id": "11",
+        "text": "#include <stdio.h>\nint main()\n{\n char opt;\n int number1;\n int number2;\n int result1, result2, result3, result4;\n scanf(\"%d\", &number1);\n scanf(\"%d\", &number2);\n result1 = number1 + number2;\n result2 = number1 - number2;\n result3 = number1 * number2;\n result4 = number1 / number2;\n printf(\"%d\\n\", result1);\n printf(\"%d\\n\", result2);\n printf(\"%d\\n\", result3);\n printf(\"%d\\n\", result4);\n return 0;\n}\n"
+    },
+    {
+        "id": "15",
+        "text": "#include <stdio.h>\nint main()\n{\n int a,b,c,result;\n scanf(\"%d\", &a);\n scanf(\"%d\", &b);\n scanf(\"%d\", &c);\n result = a + b + c;\n printf(\"%d\", result);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "16",
+        "text": "#include <stdio.h>\nint main()\n{\n char a, b, c, d, e;\n scanf(\"%c|%c|%c|%c|%c\", &a, &b, &c, &d, &e);\n printf(\"%c%c%c%c%c!\", a+32, b+32, c+32, d+32, e+32);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "18",
+        "text": "#include <stdio.h>\nint main()\n{\n int a, b;\n char c, d;\n scanf(\"%d,\", &a);\n scanf(\"%c\", &c);\n b = a + c;\n d = a + c;\n printf(\"%d,%c\", b, d);\n return 0;\n}\n\n\n"
+    },
+    {
+        "id": "19",
+        "text": "#include <stdio.h>\nint main()\n{\n float a, b, c, V;\n scanf(\"%f %f %f\", &a, &b, &c);\n V = a * b * c;\n printf(\"%.3f\", V);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "20",
+        "text": "#include <stdio.h>\nint main()\n{\n int number1;\n char opt;\n int number2;\n int result;\n scanf(\"%d\", &number1);\n scanf(\"%c\", &opt);\n scanf(\"%d\", &number2);\n if(opt == '+'){\n  result = number1 + number2;\n }else if(opt == '-'){\n  result = number1 - number2;\n }else if(opt == '*'){\n  result = number1 * number2;\n }else if( (opt == '/')&&(number2 != 0) ){\n  result = number1 / number2;\n }else if( (opt == '%')&&(number2 != 0) ){\n  result = number1 % number2;\n }\n printf(\"%d%c%d=%d\", number1, opt, number2, result);\n return 0;\n}\n\n"
+    },
+    {
+        "id": "21",
+        "text": "#include <stdio.h>\nint main()\n{\n int num, a, b, c, d, e;\n scanf(\"%d\", &num);\n a = num/10000;\n b = num/1000-10*a;\n c = num/100-100*a-10*b;\n d = num/10-1000*a-100*b-10*c;\n e = num-10000*a-1000*b-100*c-10*d;\n printf(\"%d %d %d %d %d\", a, b, c, d, e);\n return 0;\n}\n \n"
+    },
+    {
+        "id": "27",
+        "text": "#include<stdio.h>\nint main()\n{\n double m,n;\n scanf(\"%lf\",&m);\n if(m<=110)\n  n=m*0.5;\n else if(m>110&&m<=210)\n  n=110*0.5+(m-110)*0.55;\n else if(m>210)\n  n=110*0.5+100*0.55+(m-210)*0.70;\n printf(\"%.2f\",n);\n return 0;\n}\n"
+    },
+    {
+        "id": "28",
+        "text": "#include<stdio.h>\nint main()\n{\n int a,b,day;\n sacnf(\"%d %d\",&a,&b);\n switch(b)\n {\n  case 2:\n      if(a%400==0||a%4==0&&a%100!=0)  day=29;\n      else   day=28;\n      break;\n  case 1||3||5||7||8||10||12:day=31;break;\n  default:day=31;break;\n } \n printf(\"%d\",day);\n return 0;\n} \n"
+    },
+    {
+        "id": "29",
+        "text": "#include<stdio.h>\nint main()\n{\n int m,a,b,c,d,e,f,g,h,i,n;\n scanf(\"%d\",&m);\n a=m/100000000;\n b=m/10000000-a*10;\n c=m/1000000-a*100-b*10;\n d=m/100000-a*1000-b*100-c*10;\n e=m/10000-a*10000-b*1000-c*100-d*10;\n f=m/1000-a*100000-b*10000-c*1000-d*100-e*10;\n g=m/100-a*1000000-b*100000-c*10000-d*1000-e*100-f*10;\n h=m/10-a*10000000-b*1000000-c*100000-d*10000-e*1000-f*100-g*10;\n i=m/1-a*100000000-b*10000000-c*1000000-d*100000-e*10000-f*1000-g*100-h*10;\n n=a+b+c+d+e+f+g+h+i;\n printf(\"%d\",n);\n return 0;\n}\n"
+    },
+    {
+        "id": "30",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int a,b,i,n,k;\n\n scanf(\"%d %d\",&a,&b);\n \n for(n=a;n<(b+1);n++)\n {\n  k=n;\n  for(i=1;i<(n/2+1);i++)\n  {\n   if(n%i==0)\n    k=k-i;\n  }\n  if(k==0)\n   printf(\"%d\\n\",n); \n }\n \n return 0;\n } \n"
+    },
+    {
+        "id": "31",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int a,b,i;\n int m=0;\n \n scanf(\"%d %d\",&a,&b);\n \n if(a==0)\n  printf(\"%d\",b);\n if(b==0&&a!=0)\n  printf(\"%d\",a);\n  \n if(a!=0&&b!=0)\n {\n  for(i=1;i<=a&&i<=b;i++)\n  {\n   if(a%i==0&&b%i==0)\n    m=i;\n  }\n  printf(\"%d\",m);  \n }\n \n return 0;\n } \n\n"
+    },
+    {
+        "id": "32",
+        "text": "#include<stdio.h>\nint main()\n{\n    int m,n,i;\n    scanf(\"%d\",&n);\n    for(i=0;n!=1;)\n    {\n        m=n%2;\n        switch(m)\n        {\n            case 0:n=n/2;i++;break;\n            default:n=3*n+1;i++;break;\n        }\n    }\n    printf(\"%d\",i);\n    return 0;\n}\n"
+    },
+    {
+        "id": "33",
+        "text": "double function(int n)\n{\n double m;\n if(n==1)\n  m=1;\n else \n  m=1 / ( 1 + function(n-1) );\n return (m);\n}\n"
+    },
+    {
+        "id": "34",
+        "text": "#include <stdio.h>\n#include <math.h>\nint function(int a, int b)\n{\n int m, h=0, x[5];\n int i, j;\n x[0]=x[1]=x[2]=x[3]=x[4]=0;\n if(a>b)\n {\n  m=a;\n  a=b;\n  b=m;\n }\n if(b<100)\n  return 0;\n else\n {\n  if(a<100)\n   a=100;\n  for(a=a;a<=b;a++)\n  {\n   j=0;\n   for(i=a;i>0;i=i/10)\n    x[j++]=i%10;\n   x[5]=0;\n   for(i=0;i<j;i++)\n   {\n    x[5]=x[5]+pow((double)x[i],(double)j);\n   }\n   if(a==x[5])\n    h++;\n  }\n  return h;\n }\n}\n"
+    },
+    {
+        "id": "35",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int n,i,j;\n int a[1000];\n int k=1;\n \n\n scanf(\"%d\",&n);\n\n \n a[0]=2;\n \n for(i=3;i<1000;i++)\n {\n  for(j=2;j<i;j++)\n  {\n   if(i%j==0)\n    break;  \n   if((i%j!=0)||j==(i-1))\n   {\n    a[k]=i;\n    printf(\"%d \",a[k]);\n    k++;\n   }\n   else continue;\n  }\n }\n \n \n /*\n for(i=0;i<1000;i++)\n {\n  for(j=999;j>=i;j--)\n  {\n   if(a[i]+a[j]==n)\n   printf(\"%d %d\",a[i],a[j]);\n   return 0;\n  }\n }\n \n */\n return 0;\n } \n"
+    },
+    {
+        "id": "36",
+        "text": "#include<stdio.h>\n\nint main()\n{\n int m,i,j,k,t;\n int a[20][20];\n int sum[42]={0};\n \n scanf(\"%d\",&m);//m行m列 \n for(i=0;i<m;i++)\n {\n  for(j=0;j<m;j++)\n  {\n   scanf(\"%d\",&a[i][j]);//输入 \n  }\n }\n for(i=0;i<m;i++)\n {\n  for(j=0;j<m;j++)\n  {\n   sum[i]+=a[i][j];//计算每一行的和 \n  }\n }\n for(j=0;j<m;j++)\n {\n  for(i=0;i<m;i++)\n  {\n   sum[j+m]+=a[i][j];//计算每一列的和 \n  }\n  \n }\n for(i=0;i<m;i++)\n {\n  sum[2*m]+=a[i][i];//计算主对角线和 \n }\n for(i=0,j=m-1;i<m;i++,j--)\n {\n  sum[2*m+1]+=a[i][j];//计算辅对角线和 \n } \n for(i=0;i<2*m+1;i++)//一共循环多少趟 \n {\n  for(j=0;j<2*m+1-i;j++)//每一趟中交换的次数 \n  {\n   if(sum[j]<sum[j+1])//比较 \n   {\n    t=sum[j];//交换 \n    sum[j]=sum[j+1];\n    sum[j+1]=t;\n   }\n  }\n }\n for(k=0;k<(2*m+2);k++) \n {\n  printf(\"%d \",sum[k]);//打印和 \n }\n\n return 0;\n}\n"
+    },
+    {
+        "id": "37",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,i,j,t,k=0;\n int a[100];//原数组 \n \n scanf(\"%d\",&n);\n \n for(i=0;i<n;i++)//输入数组 \n {\n  scanf(\"%d\",&a[i]);\n }\n/* for(i=0;i<n-1;i++)\n {\n  for(j=0;j<n-1-i;j++)\n  {\n   if(a[j]%2==0)//将偶数前提 \n   {\n    /*t=a[j];\n    a[j]=a[j+1];\n    a[j+1]=t;\n    k=j;//最后一个偶数的位置 \n   }\n  }\n }*/\n for(i=0;i<n;i++)\n {\n  if(a[i]%2==0)//将偶数前提 \n   {\n    t = a[k];\n    a[k] = a[i];\n    a[i] = t;\n    k++;\n   }\n }\n \n printf(\"%d\\n\", k); \n \n for(i=0;i<n;i++){\n  printf(\"%d \", a[i]);  \n }\n \n k=k-1;\n for(i=0;i<k;i++)\n {\n  for(j=0;j<k-i;j++)\n  {\n   if(a[j]<a[j+1])//排序偶数 \n   {\n    t=a[j];\n    a[j]=a[j+1];\n    a[j+1]=t;\n   }\n  }\n }\n \n for(i=(k+1);i<n-1;i++)\n {\n  for(j=(k+1);j<n-1-i;j++)\n  {\n   if(a[j]<a[j+1])//排序奇数 \n   {\n    t=a[j];\n    a[j]=a[j+1];\n    a[j+1]=t;\n   }\n  }\n }\n \n for(i=0;i<n;i++)\n {\n  printf(\"%d \",a[i]);\n }\n \n return 0;\n}\n"
+    },
+    {
+        "id": "38",
+        "text": "#include <stdio.h>\nint main()\n{\n int n,a=0,b,c,sum=0;\n scanf(\"%d\", &n);\n c=n;//c即初始的n值 \n    // 翻转\n    while(n!=0)\n    {\n        b=n%10;\n        sum+=b;\n        a=a*10 +b;\n        n/=10;\n    }\n    // 判断\n    if(c==a)\n        printf(\"%d\",sum);\n    else\n        printf(\"no\");\n    return 0;\n}\n"
+    },
+    {
+        "id": "39",
+        "text": "#include<stdio.h>\nint main()\n{\n int m,n,a[100][100],i,j,flag=0,max[100],min[100];\n scanf(\"%d %d\",&m,&n);         //矩阵规模为    >>>> m 行 n 列 \n for(i=0;i<m;i++)              //输入矩阵\n {\n  for(j=0;j<n;j++)\n  {\n   scanf(\"%d\",&a[i][j]);\n  }\n }\n for(i=0;i<m;i++) //外层循环处理每一行 \n {\n  min[i]=a[i][0];//第i行的最小值为min[i] \n  for(j=1;j<n;j++)\n  {\n   if(a[i][j]<min[i])\n    min[i]=a[i][j];\n  } \n }\n for(j=0;j<n;j++) //内层循环表示每一列的最大值 \n {\n  max[j]=a[0][j];\n  for(i=0;i<m;i++)\n  {\n   if(a[i][j]>max[j])\n    max[j]=a[i][j];\n  }\n }\n for(i=0;i<m;i++) \n {\n  for(j=0;j<n;j++)\n  {\n   if(a[i][j]==max[j]&&a[i][j]==min[i])\n   {\n    printf(\"%d %d %d\",i,j,a[i][j]);\n    flag=1;\n   }\n  }\n }\n if(flag==0) printf(\"no\");\n return 0;\n}\n"
+    },
+    {
+        "id": "40",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,i,t,e=0,a[1000],j;\n scanf(\"%d\",&n);\n for(i=0;i<n;i++)\n  scanf(\"%d\",&a[i]);\n    for(j=0;j<n-1;j++)//冒泡排序  数组a[i]从小到大排序 \n {\n  for(i=0;i<n-1-j;i++)\n  {\n   if(a[i]>a[i+1])\n   {\n    t=a[i];\n    a[i]=a[i+1];\n    a[i+1]=t;\n   }\n    }\n }\n for(i=0,e=0;i<n-2;i++)\n {\n  if(a[i+1]*2==a[i+2]+a[i])//中间一项的二倍是前后两项的和 \n   e++; \n }\n if(e==n-2)\n  printf(\"%d\",a[1]-a[0]);\n if(e!=n-2)\n  printf(\"no\");\n return 0;\n}\n\n"
+    },
+    {
+        "id": "41",
+        "text": "#include <stdio.h>\nint main()\n{\n int n, k1=0, k2=0, a=0, b=0, c=0, d=0, e=0, f=0;\n int Pi[1000];\n float m=0;\n scanf(\"%d\", &n);\n for(k1=0;k1<n;k1++)\n {\n  scanf(\"%d\", &Pi[k1]);\n  k2=Pi[k1];\n  m=m+k2;\n  if(k2>=0&&k2<=50)\n   a++;\n  if(k2>=51&&k2<=100)\n   b++;\n  if(k2>=101&&k2<=150)\n   c++;\n  if(k2>=151&&k2<=200)\n   d++;\n  if(k2>=201&&k2<=300)\n   e++;\n  if(k2>300)\n   f++;\n }\n m=m/n;\n printf(\"%.2f\\n\", m);\n printf(\"%d %d %d %d %d %d\",a,b,c,d,e,f);\n return 0;\n}\n"
+    },
+    {
+        "id": "42",
+        "text": "#include <stdio.h>\nint main()\n{\n int a, b, c, d;\n scanf(\"%d %d\", &a, &b);\n c = a / b;\n d = a % b; \n if(d == 0)\n  printf(\"yes\");\n else\n  printf(\"%d %d\", c, d);\n return 0;\n}\n"
+    },
+    {
+        "id": "43",
+        "text": "#include<stdio.h>\nint main()\n{\n \n    int n,d,i,max=0,min=9;\n scanf(\"%d\",&n);\n \n if(n==0){\n  printf(\"1 0 0\");\n }\n else{\n  for(i=0;n!=0;i++)\n  {\n   d=n%10;\n   if(d>max) max=d;\n   if(d<min) min=d;\n   \n   n=n/10;\n  }\n  printf(\"%d %d %d\",i,max,min);\n }\n return 0;\n} \n"
+    },
+    {
+        "id": "44",
+        "text": "#include <stdio.h>\nint function(int n);\nint main()\n{\n int n, i=2, m;\n scanf(\"%d\", &n);\n m=function(n);\n if(m==2)\n  printf(\"yes\"); \n else if(m>2)\n {\n  while(i<m&&m%i!=0)\n   i++;\n  if(i==m)\n   printf(\"yes\");\n  else\n   printf(\"%d\", m);\n }\n return 0;\n} \nint function(int n)\n{\n int m;\n if(n==1||n==2)\n  m=1;\n else \n  m=function(n-2) + function(n-1) ;\n return (m);\n}\n"
+    },
+    {
+        "id": "45",
+        "text": "#include <stdio.h>\n#include <math.h>\nint main()\n{\n int i, n, c=0, d;\n int a[1000];\n scanf(\"%d\", &n);\n scanf(\"%d\", &a[0]);\n for(i=1;i<n;i++)\n {\n  scanf(\"%d\", &a[i]);\n  d = fabs( a[i] - a[i-1] );\n  if( d > c )\n  {\n   c = d;\n  }\n }\n printf(\"%d\", c);\n return 0;\n}\n"
+    },
+    {
+        "id": "47",
+        "text": "#include <stdio.h>\nint main()\n{\n int h, m;\n float T, t;\n scanf(\"%d %d\", &h, &m);\n t = h + m/60.;\n T = 4*t*t/(t+2)-20;\n printf(\"%.2f\", T);\n return 0;\n}\n"
+    },
+    {
+        "id": "48",
+        "text": "#include<stdio.h>\nint main()\n{\n int m,n,q,r,a,b;\n scanf(\"%d %d %d %d\",&m,&n,&q,&r);\n a=m/n;\n b=m%n;\n if(a==q,b==r)\n  printf(\"yes\");\n else\n  printf(\"%d %d\",a,b);\n return 0;\n}\n"
+    },
+    {
+        "id": "49",
+        "text": "#include<stdio.h>\nint main()\n{\n int n,m,i; \n scanf(\"%d\",&n);\n \n \n for(m=0;m<n&&i!=n;m++)\n {\n  i=m*m;\n }\n m=m-1;\n if(i==n) printf(\"%d\",m);\n if(i!=n) printf(\"no\");\n return 0;\n}\n"
+    }
+]
