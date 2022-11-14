@@ -124,7 +124,7 @@ def getProblems(session: requests.Session, contestId: int) -> List[ProblemInfo]:
 
 
 def getClassId(session: requests.Session) -> str:
-    response = session.post('http://39.98.193.72/xdoj-ssm/team/submit.do', headers={
+    response = session.get('http://39.98.193.72/xdoj-ssm/team/submit.do', headers={
         'Referer': 'http://39.98.193.72/xdoj-ssm/team/problems.do',
         'User-Agent': USER_AGENT
     })
